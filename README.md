@@ -156,6 +156,15 @@ html .pompom{
  - `npm run build`（编译 `sakana.less`、`document.less` 为 `.css`，再打包 `sakana.min.js`）
  - 仅编译样式：`npm run build:css`
 
+## GitHub Pages（Actions）
+
+仓库已包含 [`.github/workflows/pages.yml`](.github/workflows/pages.yml)，推送 `main` 后会自动 `npm run build` 并发布 `html/` 目录。
+
+1. 仓库 **Settings → Pages → Build and deployment**
+2. **Source** 选 **GitHub Actions**（不是 Deploy from a branch）
+3. 推送本仓库后，在 **Actions** 页查看 workflow；成功后访问  
+   `https://kokoro-ele.github.io/pompom/`（`index.html`、`deto.html` 等同路径）
+
 ## GitHub
 https://github.com/itorr/sakana/
 
