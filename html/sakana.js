@@ -21,19 +21,17 @@ const Sakana = (_=>{
     // 截止数值
     const cut = 0.1;
 
-    const chisatoConsoleStyle = 'color:#FED;background-color:#C34;padding:2px 4px;';
-    const takinaConsoleStyle = 'color:#CCC;background-color:#235;padding:2px 4px;';
 
     // 角色们属性
     const Characters = {
-        chisato: {
+        cinnamon: {
             r: 1, // 角度
             y: 40, // 高度
             t: 0, // 垂直速度
             w: 0, // 横向速度
             d: 0.99 // 衰减
         },
-        takina: {
+        pompom: {
             r: 12, // 角度
             y: 2, // 高度
             t: 0, // 垂直速度
@@ -41,18 +39,6 @@ const Sakana = (_=>{
             d: 0.988 // 衰减
         }
     };
-
-    // 音效
-    const Voices = {
-        chisato: new Audio('chinanago.m4a'),
-        takina: new Audio('sakana.m4a'),
-
-        isMute: true
-    };
-
-    Voices.takina.volume = Voices.chisato.volume = 0.8;
-    Voices.takina.muted = Voices.chisato.muted = Voices.isMute;
-
 
     const deepCopy = typeof window.structuredClone === 'function'
         ? v => window.structuredClone(v)
@@ -89,7 +75,7 @@ const Sakana = (_=>{
 
         let {
             el, // 启动元素
-            character = 'takina', // 角色
+            character = 'cinnamon', // 角色
             inertia, // 惯性
             originRotate = 0, // 水平度数
             r, // 初始角度
@@ -109,11 +95,20 @@ const Sakana = (_=>{
         let v;
 
         const boxEl = el;
-        boxEl.classList.add('sakana-box');
-        boxEl.innerHTML = `<canvas></canvas><div class="sakana-character"></div><div class="sakana-bed"></div>`;
-        
-        const characterEl = boxEl.querySelector('.sakana-character');
+        const applyCharacterClass = (name, prev) => {
+            if (prev) {
+                boxEl.classList.remove(prev);
+                characterEl.classList.remove(prev);
+            }
+            boxEl.classList.add(name);
+            characterEl.classList.add(name);
+        };
+
+        boxEl.innerHTML = `<canvas></canvas><div></div><div class="sakana-bed"></div>`;
+
+        const characterEl = boxEl.querySelector('canvas + div');
         const bedEl = boxEl.querySelector('.sakana-bed');
+        applyCharacterClass(character);
         const canvas = boxEl.querySelector('canvas');
         
         
@@ -287,9 +282,6 @@ const Sakana = (_=>{
             const _downPageX = pageX;
             const _downPageY = pageY;
 
-            // 确保通过用户触发事件获得 audio 播放授权
-            Voices.takina.muted = Voices.chisato.muted = Voices.isMute;
-
             v.w = 0;
             v.t = 0;
 
@@ -311,7 +303,6 @@ const Sakana = (_=>{
                 document.removeEventListener('mouseup',onMouseUp);
 
                 running = true;
-                playVoice();
                 requestAnimationFrame(run);
             };
 
@@ -328,9 +319,6 @@ const Sakana = (_=>{
             const { pageX, pageY } = e.touches[0];
             const _downPageX = pageX;
             const _downPageY = pageY;
-
-            // 确保通过用户触发事件获得 audio 播放授权
-            Voices.takina.muted = Voices.chisato.muted = Voices.isMute;
 
             v.w = 0;
             v.t = 0;
@@ -354,7 +342,6 @@ const Sakana = (_=>{
                 document.removeEventListener('touchend',onTouchEnd);
                 
                 running = true;
-                playVoice();
                 requestAnimationFrame(run);
             }
 
@@ -370,10 +357,14 @@ const Sakana = (_=>{
             running = true;
             requestAnimationFrame(run);
         };
-        const setCharacter = character =>{
-            characterEl.setAttribute('data-character',character);
-            const characterValue = Characters[character];
+        const setCharacter = name =>{
+            const characterValue = Characters[name];
             if(!characterValue) return;
+
+            if (name !== character) {
+                applyCharacterClass(name, character);
+                character = name;
+            }
 
             v = deepCopy(characterValue);
 
@@ -387,10 +378,10 @@ const Sakana = (_=>{
         };
 
         const switchCharacter = v=>{
-            if(character === 'chisato'){
-                character = 'takina';
+            if(character === 'cinnamon'){
+                character = 'pompom';
             }else{
-                character = 'chisato';
+                character = 'cinnamon';
             }
 
             setCharacter(character);
@@ -405,31 +396,6 @@ const Sakana = (_=>{
                 switchCharacter();
             });
         }
-
-        const playVoice = _ => {
-            if (Voices.isMute) return;
-            // log({ r: v.r, y: v.y })
-        
-            if (character === 'chisato') {
-                if (
-                    // 'nice chin~a~na~go~' 经验值
-                    Math.abs(v.r) <= 4
-                    && Math.abs(v.y) >= 20
-                ) {
-                    log('%cchin~a~na~go~',chisatoConsoleStyle);
-                    Voices.chisato.play();
-                };
-            } else {
-                if (
-                    // 'nice sakana~' 经验值
-                    v.r >= Characters.takina.r
-                    && (Math.abs(v.y) <= 12 || v.r >= 3 * Math.abs(v.y))
-                ) {
-                    log('%csakana~',takinaConsoleStyle);
-                    Voices.takina.play();
-                };
-            };
-        };
 
         setCharacter(character);
 
@@ -456,57 +422,8 @@ const Sakana = (_=>{
             }
         }
     };
-
-    const baseURL = 'https://lab.magiconch.com/sakana/';
-    const twitterURL = 'https://twitter.com/blue00f4/';
-    const githubRepositoryURL = 'https://github.com/itorr/sakana';
-    log(
-        `%c錦木千束 ${baseURL}?v=chisato`,
-        chisatoConsoleStyle,
-    );
-    log(
-        `%c井ノ上たきな ${baseURL}?v=takina`,
-        takinaConsoleStyle,
-    );
-    
-    log(
-        `%c永续超慢速%c${baseURL}?inertia=0.001&decay=1`,
-        chisatoConsoleStyle,
-        takinaConsoleStyle,
-    );
-    
-    log(
-        '绘: %c大伏アオ %c已取得在网页中使用的非商用授权',
-        'font-weight:bold',
-        'color:#C34',
-    
-        twitterURL+'status/1551887529615687680',
-        twitterURL+'status/1552066743853813760',
-    );
-    
-    log(
-        '微博',
-        'https://weibo.com/1197780522/M2xbREtGI',
-    );
-    log(
-        'Github',
-        githubRepositoryURL,
-    );
-    log(
-        '问题反馈',
-        `${githubRepositoryURL}/issues`,
-    );
-    
-
     return {
         init,
-        Voices,
-        setMute(_isMute){
-            Voices.isMute = _isMute;
-
-            Voices.takina.muted = 
-            Voices.chisato.muted = _isMute;
-        }
     };
 })();
 

@@ -1,7 +1,7 @@
-<a href="https://lab.magiconch.com/sakana/?v=takina" target="_blank">
-  <img src="../../html/takina.png" height="160px">
-</a><a href="https://lab.magiconch.com/sakana/?v=chisato" target="_blank">
-  <img src="../../html/chisato.png" height="160px">
+<a href="https://lab.magiconch.com/sakana/?v=pompom" target="_blank">
+  <img src="../../html/pompom.png" height="160px">
+</a><a href="https://lab.magiconch.com/sakana/?v=cinnamon" target="_blank">
+  <img src="../../html/cinnamon.png" height="160px">
 </a>
 
 # 🐟「Sakana!」リコリス紙人形劇
@@ -31,15 +31,14 @@
 - 台座をクリックするとキャラクターが切り替わります。
 - ジャイロセンサが使えるスマートフォンでは、スマートフォンを振ることで、キャラクターをスイングさせる。 [#12 解決予定](https://github.com/itorr/sakana/pull/12)
 - キャラクターにランダムな大きさの力をランダムな間隔で加える自走式モード [#7](https://github.com/itorr/sakana/pull/7) [@milkybird98](https://github.com/milkybird98)
-- 効果音、マウスを離した時の効果音はランダムな間隔で鳴ります。 [#9](https://github.com/itorr/sakana/pull/9) [@zthxxx](https://github.com/zthxxx)
 - 多言語対応 [#26](https://github.com/itorr/sakana/pull/26) [@dsrkafuu](https://github.com/dsrkafuu)
 
 ### リクエストパラメーター
 
-- リクエストパラメータに `?v=chisato` を追加すると、[錦木千束](https://lab.magiconch.com/sakana/?v=chisato) になります。
-- リクエストパラメータに `?v=takina` を追加すると、[井ノ上たきな](https://lab.magiconch.com/sakana/?v=takina) になります。
+- リクエストパラメータに `?v=cinnamon` を追加すると、[錦木千束](https://lab.magiconch.com/sakana/?v=cinnamon) になります。
+- リクエストパラメータに `?v=pompom` を追加すると、[井ノ上たきな](https://lab.magiconch.com/sakana/?v=pompom) になります。
 - リクエストパラメータに `?alpha=true` を追加すると、背景が透過されます。 [例](https://lab.magiconch.com/sakana/?alpha=true)
-- リクエストパラメータに `?background=red` を追加すると、背景をカスタマイズできます。 `#FF00FF` `'#d77 url(chisato.png)'` を利用できます。 [例](<https://lab.magiconch.com/sakana/?background=%23d77%20url(chisato.png)>)
+- リクエストパラメータに `?background=red` を追加すると、背景をカスタマイズできます。 `#FF00FF` `'#d77 url(cinnamon.png)'` を利用できます。 [例](<https://lab.magiconch.com/sakana/?background=%23d77%20url(cinnamon.png)>)
 - リクエストパラメータに `?decay=0.99` を追加すると、キャラクターの動きの減衰の大きさを指定できます。 [減衰なしの例](https://lab.magiconch.com/sakana/?decay=1) [#11](https://github.com/itorr/sakana/issues/11)
 - リクエストパラメータに `?inertia=0.1` を追加すると、慣性の大きさを指定できます。 [スーパースローの例](https://lab.magiconch.com/sakana/?inertia=0.001)
 - リクエストパラメータに `?lang=en-US` を追加すると、言語を指定できます。 [英語](https://lab.magiconch.com/sakana/?lang=en-US) [日本語](https://lab.magiconch.com/sakana/?lang=ja-JP)
@@ -51,11 +50,11 @@
 
 #### パラメータの組み合わせの例
 
-- [超高速振動の千束の英語表記例](https://lab.magiconch.com/sakana/?inertia=0.2&decay=0.999&v=chisato&lang=en-US)
-- [超低速スイングのたきなの日本語例](https://lab.magiconch.com/sakana/?inertia=0.001&decay=1&v=takina&lang=ja-JP)
-- [大きさが 2 倍で低速の減衰なし千束の例](https://lab.magiconch.com/sakana/?inertia=0.01&decay=1&v=chisato&scale=2&translateY=140px)
+- [超高速振動の千束の英語表記例](https://lab.magiconch.com/sakana/?inertia=0.2&decay=0.999&v=cinnamon&lang=en-US)
+- [超低速スイングのたきなの日本語例](https://lab.magiconch.com/sakana/?inertia=0.001&decay=1&v=pompom&lang=ja-JP)
+- [大きさが 2 倍で低速の減衰なし千束の例](https://lab.magiconch.com/sakana/?inertia=0.01&decay=1&v=cinnamon&scale=2&translateY=140px)
 - [超小型・慣性弱・強減衰 たきなの例](https://lab.magiconch.com/sakana/?inertia=0.02&decay=0.9&scale=0.3)
-- [デフォルト角度 60 度で Y 軸 100 の位置 のたきなの例](https://lab.magiconch.com/sakana/?v=takina&r=60&y=100)
+- [デフォルト角度 60 度で Y 軸 100 の位置 のたきなの例](https://lab.magiconch.com/sakana/?v=pompom&r=60&y=100)
 
 ## 個人サイトに導入
 
@@ -63,14 +62,14 @@
 [ソースコード](https://github.com/itorr/sakana/blob/main/html/into.html)
 
 ```html
-<div class="sakana-box"></div>
+<div class="pompom"></div>
 ```
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/sakana"></script>
 <script>
   Sakana.init({
-    el: ".sakana-box", // 開始位置。ノードまたはセレクタ
+    el: ".pompom", // 開始位置。ノードまたはセレクタ
     scale: 0.5, // 倍率
     canSwitchCharacter: true, // キャラクターの切り替え
   });
@@ -80,17 +79,11 @@
 ### オプションとメソッド
 
 ```javascript
-// ミュート指定
-Sakana.setMute(true);
-
-// ミュートの状態を取得
-const { isMute } = Sakana.Voices;
-
 // 初期化
 const sakana = Sakana.init({
   // オプション：デフォルト
-  el: ".sakana-box", // 開始位置。ノードまたはセレクタ
-  character: "takina", // キャラクターを指定。「ちさと」または「たきな」。
+  el: ".pompom", // 開始位置。ノードまたはセレクタ
+  character: "pompom", // キャラクターを指定。「ちさと」または「たきな」。
   inertia: 0.01, // 慣性
   decay: 0.99, // 減衰
   r: 60, // 初期角度
@@ -123,13 +116,13 @@ sakana.pause();
 sakana.play();
 
 // キャラクターを指定
-sakana.setCharacter("chisato");
+sakana.setCharacter("cinnamon");
 ```
 
 ### ウィンドウの右下に配置
 
 ```css
-html .sakana-box {
+html .pompom {
   position: fixed;
   right: 0;
   bottom: 0;

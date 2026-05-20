@@ -1,7 +1,7 @@
-<a href="https://lab.magiconch.com/sakana/?v=takina" target="_blank">
-  <img src="html/takina.png" height="160px">
-</a><a href="https://lab.magiconch.com/sakana/?v=chisato" target="_blank">
-  <img src="html/chisato.png" height="160px">
+<a href="https://lab.magiconch.com/sakana/?v=pompom" target="_blank">
+  <img src="html/pompom.png" height="160px">
+</a><a href="https://lab.magiconch.com/sakana/?v=cinnamon" target="_blank">
+  <img src="html/cinnamon.png" height="160px">
 </a>
 
 # 🐟「Sakana!」石蒜模拟器
@@ -36,15 +36,14 @@
  - 点击底座切换角色
  - 手机开启陀螺仪权限、摇一摇可甩动立牌 [#12 待解决](https://github.com/itorr/sakana/pull/12)
  - 自走模式，以随机间隔、施加一个大小随机的力 [#7](https://github.com/itorr/sakana/pull/7) [@milkybird98](https://github.com/milkybird98)
- - 音效，在适当区间松手时的语音效果 [#9](https://github.com/itorr/sakana/pull/9) [@zthxxx](https://github.com/zthxxx)
  - 多语言支持 [#26](https://github.com/itorr/sakana/pull/26) [@dsrkafuu](https://github.com/dsrkafuu)
  
 ### 请求参数
 
- - 添加 `?v=chisato` 请求参数，可获得 [锦木千束](https://lab.magiconch.com/sakana/?v=chisato) 专属链接
- - 添加 `?v=takina` 请求参数，可获得 [井上泷奈](https://lab.magiconch.com/sakana/?v=takina) 专属链接
+ - 添加 `?v=cinnamon` 请求参数，可获得 [锦木千束](https://lab.magiconch.com/sakana/?v=cinnamon) 专属链接
+ - 添加 `?v=pompom` 请求参数，可获得 [井上泷奈](https://lab.magiconch.com/sakana/?v=pompom) 专属链接
  - 添加 `?alpha=true` 请求参数，可获得透明背景 [例](https://lab.magiconch.com/sakana/?alpha=true)
- - 添加 `?background=red` 请求参数，可自定义背景 `#FF00FF` `'#d77 url(chisato.png)'` 均可 [例](https://lab.magiconch.com/sakana/?background=%23d77%20url(chisato.png))
+ - 添加 `?background=red` 请求参数，可自定义背景 `#FF00FF` `'#d77 url(cinnamon.png)'` 均可 [例](https://lab.magiconch.com/sakana/?background=%23d77%20url(cinnamon.png))
  - 添加 `?decay=0.99` 请求参数，自定义衰减 [无阻尼例](https://lab.magiconch.com/sakana/?decay=1) [#11](https://github.com/itorr/sakana/issues/11)
  - 添加 `?inertia=0.1` 请求参数，自定义惯性 [超慢速例](https://lab.magiconch.com/sakana/?inertia=0.001)
  - 添加 `?lang=en-US` 请求参数，自定义语言 [英文](https://lab.magiconch.com/sakana/?lang=en-US) [日语](https://lab.magiconch.com/sakana/?lang=ja-JP)
@@ -55,11 +54,11 @@
  - 添加 `?y=100` 请求参数，初始角色下沉 100 单位
 
 #### 组合参数例
- - [超高速微阻尼千束英文例](https://lab.magiconch.com/sakana/?inertia=0.2&decay=0.999&v=chisato&lang=en-US)
- - [超慢速无阻尼泷奈日文例](https://lab.magiconch.com/sakana/?inertia=0.001&decay=1&v=takina&lang=ja-JP)
- - [两倍慢速无阻尼千束例](https://lab.magiconch.com/sakana/?inertia=0.01&decay=1&v=chisato&scale=2&translateY=140px)
+ - [超高速微阻尼千束英文例](https://lab.magiconch.com/sakana/?inertia=0.2&decay=0.999&v=cinnamon&lang=en-US)
+ - [超慢速无阻尼泷奈日文例](https://lab.magiconch.com/sakana/?inertia=0.001&decay=1&v=pompom&lang=ja-JP)
+ - [两倍慢速无阻尼千束例](https://lab.magiconch.com/sakana/?inertia=0.01&decay=1&v=cinnamon&scale=2&translateY=140px)
  - [超小没劲强阻尼泷奈例](https://lab.magiconch.com/sakana/?inertia=0.02&decay=0.9&scale=0.3)
- - [默认六十度一百高泷奈例](https://lab.magiconch.com/sakana/?v=takina&r=60&y=100)
+ - [默认六十度一百高泷奈例](https://lab.magiconch.com/sakana/?v=pompom&r=60&y=100)
 
 
 ## 引入到个人网站
@@ -68,14 +67,14 @@
 [源码](https://github.com/itorr/sakana/blob/main/html/into.html)
 
 ```html
-<div class="sakana-box"></div>
+<div class="pompom"></div>
 ```
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/sakana"></script>
 <script>
 Sakana.init({
-  el:         '.sakana-box',     // 启动元素 node 或 选择器
+  el:         '.pompom',     // 启动元素 node 或 选择器
   scale:      .5,                // 缩放倍数
   canSwitchCharacter: true,      // 允许换角色
 });
@@ -91,7 +90,7 @@ npm i sakana -d
 import Sakana from 'sakana';
 
 Sakana.init({
-  el:         '.sakana-box',     // 启动元素 node 或 选择器
+  el:         '.pompom',     // 启动元素 node 或 选择器
   scale:      .5,                // 缩放倍数
   canSwitchCharacter: true,      // 允许换角色
 });
@@ -99,17 +98,11 @@ Sakana.init({
 
 ### 选项与方法 
 ```javascript
-// 设定静音
-Sakana.setMute(true);
-
-// 获取静音状态
-const { isMute } = Sakana.Voices;
-
 // 启动
 const sakana = Sakana.init({
   // 选项: 默认值
-  el:         '.sakana-box',     // 启动元素 node 或 选择器
-  character:  'takina',          // 启动角色 'chisato','takina' 
+  el:         '.pompom',     // 启动元素 node 或 选择器
+  character:  'pompom',          // 启动角色 'cinnamon','pompom' 
   inertia:    0.01,              // 惯性
   decay:      0.99,              // 衰减
   r:          60,                // 启动角度
@@ -141,13 +134,13 @@ sakana.pause();
 sakana.play();
 
 // 切换特定角色
-sakana.setCharacter('chisato');
+sakana.setCharacter('cinnamon');
 ```
 
 
 ### 放在窗口右下
 ```css
-html .sakana-box{
+html .pompom{
   position: fixed;
   right: 0;
   bottom: 0;
@@ -160,7 +153,8 @@ html .sakana-box{
 
 ## 编译
  - `npm i`
- - `npm run build`
+ - `npm run build`（编译 `sakana.less`、`document.less` 为 `.css`，再打包 `sakana.min.js`）
+ - 仅编译样式：`npm run build:css`
 
 ## GitHub
 https://github.com/itorr/sakana/

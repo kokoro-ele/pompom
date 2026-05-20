@@ -2,7 +2,6 @@ const LOCALE_SRC = {
   "zh-CN": {
     lang: "语言",
     gyroscope: "陀螺仪",
-    mute: "静音",
     magic: "自动",
     weibo: "微博",
     image: "绘",
@@ -13,7 +12,6 @@ const LOCALE_SRC = {
   "en-US": {
     lang: "Language",
     gyroscope: "Gyroscope",
-    mute: "Mute",
     magic: "Auto",
     weibo: "Weibo",
     image: "Image",
@@ -24,7 +22,6 @@ const LOCALE_SRC = {
   "ja-JP": {
     lang: "言語",
     gyroscope: "水準器",
-    mute: "静音",
     magic: "自動",
     weibo: "微博",
     image: "絵",

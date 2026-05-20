@@ -3,7 +3,7 @@
 html{
   background: #CCC;
 }
-html .sakana-box{
+html .pompom{
   position: fixed;
   right: 0;
   bottom: 0;
@@ -12,16 +12,13 @@ html .sakana-box{
 }
 </style>
 
-<div class="sakana-box"></div>
+<div class="pompom"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/sakana@1.0.8"></script>
 <script>
-// 取消静音
-Sakana.setMute(false);
-
 // 启动
 Sakana.init({
-  el:         '.sakana-box',     // 启动元素 node 或 选择器
+  el:         '.pompom',     // 启动元素 node 或 选择器
   scale:      .5,                // 缩放倍数
   canSwitchCharacter: true,      // 允许换角色
 });

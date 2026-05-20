@@ -64,34 +64,13 @@ resize();
 
 window.addEventListener('resize',resize);
 
-
-const voiceButton = document.querySelector('.set-voice');
-
-
-const toggleVoiceMute = () => {
-    let { isMute } = Sakana.Voices;
-    isMute = !isMute;
-
-    // 设定静音
-    Sakana.setMute(isMute);
-    voiceButton.setAttribute(
-        'data-active',
-        isMute
-    );
-};
-
-voiceButton.setAttribute(
-    'data-active',
-    Sakana.Voices.isMute
-);
-
 // 启动
-const takina = Sakana.init({
+const pompom = Sakana.init({
     // 启动元素
     el: boxEl,
 
     // 自定义启动角色
-    character: params.v || 'takina',
+    character: params.v || 'pompom',
     
     // 自定义惯性
     inertia: +params.inertia,
@@ -151,7 +130,7 @@ const onDeviceOrientation = (e)=> {
     or = Math.max(-maxR,or);
 
     // 根据陀螺仪信息 调整归零角度
-    takina.setOriginRotate(or);
+    pompom.setOriginRotate(or);
 };
 const setOrientationListener = _=>{
     getOrientationPermission(_=>{
@@ -170,14 +149,14 @@ let magicForceFlag = false;
 
 const magicForce = _=>{
     // 获取角色运行状态
-    const v = takina.getValue();
+    const v = pompom.getValue();
 
     // Add random velocities in the vertical and horizontal directions
     v.t = v.t + (Math.random()-0.5) * 150;
     v.w = v.w + (Math.random()-0.5) * 200;
 
     // 确保运行
-    takina.confirmRunning();
+    pompom.confirmRunning();
 
 
     // Set a variable delay between applying magic powers

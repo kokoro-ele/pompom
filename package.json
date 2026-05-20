@@ -1,6 +1,7 @@
 {
   "devDependencies": {
     "clean-css": "^5.3.1",
+    "less": "^4.2.0",
     "uglify-es": "^3.3.9",
     "uglify-js": "^3.17.0"
   },
@@ -9,7 +10,8 @@
   "version": "1.0.8",
   "main": "html/sakana.min.js",
   "scripts": {
-    "build": "node build.js"
+    "build:css": "lessc html/sakana.less html/sakana.css && lessc html/document.less html/document.css",
+    "build": "npm run build:css && node build.js"
   },
   "repository": {
     "type": "git",

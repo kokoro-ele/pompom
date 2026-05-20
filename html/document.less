@@ -2,7 +2,7 @@
     --app-height: 100vh;
 }
 html{
-    background: #3f80b6;
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
     color: #FFF;
     overflow: hidden;
     font: 16px sans-serif;
@@ -103,17 +103,6 @@ button{
     cursor: pointer;
 }
 
-.set-voice {
-    cursor: pointer;
-
-    &.voice-mute {
-        text-decoration: line-through;
-        // &::before, &::after {
-        //     content: '\00a0';
-        // }
-    }
-}
-
 .set-orientation-link{
     display: none;
 }
@@ -156,22 +145,26 @@ html .deto{
 
 html[data-scale="auto"]{
     @media (max-height:600px) {
-        .sakana-box{
+        .cinnamon,
+        .pompom {
             transform: scale(.8);
         }
     }
     @media (max-height:550px) {
-        .sakana-box{
+        .cinnamon,
+        .pompom {
             transform: scale(.7);
         }
     }
     @media (max-height:450px) {
-        .sakana-box{
+        .cinnamon,
+        .pompom {
             transform: scale(.6);
         }
     }
     @media (max-height:350px) {
-        .sakana-box{
+        .cinnamon,
+        .pompom {
             transform: scale(.5);
         }
     }

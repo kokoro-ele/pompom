@@ -8,3 +8,5 @@ html/document.css
 html/sakana.css
 package-lock.json
 node_modules
+.DS_Store
+**/.DS_Store
