@@ -162,8 +162,9 @@ html .pompom{
 
 1. 仓库 **Settings → Pages → Build and deployment**
 2. **Source** 选 **GitHub Actions**（不是 Deploy from a branch）
-3. 推送本仓库后，在 **Actions** 页查看 workflow；成功后访问  
-   `https://kokoro-ele.github.io/pompom/`（`index.html`、`deto.html` 等同路径）
+3. **不要**再用 GitHub 生成的 `static.yml`（会把仓库根目录当站点，根目录没有 `index.html` 会 404）
+4. 推送后等 **Deploy GitHub Pages** workflow 成功，访问  
+   `https://kokoro-ele.github.io/pompom/`（注意带仓库名 `/pompom/`）
 
 ## GitHub
 https://github.com/itorr/sakana/
